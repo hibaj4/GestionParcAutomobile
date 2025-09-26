@@ -1,0 +1,166 @@
+﻿@implements IDisposable
+
+
+
+@if (allState.ShowUtilisateurs)
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header ">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+
+                        <h5 class="float-start">Personnel</h5>
+
+                        <button class="btn btn-outline-success float-end" @onclick="OpenDialog">
+                            <i class="bi bi-plus-circle-dotted"></i> Ajouter une personne
+                        </button>
+                    </div>
+                    </div>
+
+                    <div class="card-body" style="max-height:558px; overflow-y:auto;">
+                        <SfGrid @ref="grid" TValue="Utilisateur" DataSource="@Utilisateurs"
+                                AllowPaging="true" AllowSorting="true"
+                                AllowFiltering="true" AllowResizing="true"
+                                Toolbar="@(new List<string> {"Print", "Search" })"
+                                Height="550px">
+                            
+                            <GridColumns>
+                                <GridColumn Field=@nameof(Utilisateur.CIN) HeaderText="CIN" Width="120"></GridColumn>
+                                <GridColumn Field=@nameof(Utilisateur.Nom) HeaderText="Nom" Width="150"></GridColumn>
+                                <GridColumn Field=@nameof(Utilisateur.Prenom) HeaderText="Prénom" Width="150"></GridColumn>
+                                <GridColumn Field=@nameof(Utilisateur.Email) HeaderText="Email" Width="200"></GridColumn>
+                                
+                                
+                                <GridColumn Field=@nameof(Utilisateur.Tel) HeaderText="Téléphone" Width="150"></GridColumn>
+                                <GridColumn Field=@nameof(Utilisateur.Adresse) HeaderText="Adresse" Width="150"></GridColumn>
+
+                                <GridColumn Field=@nameof(Utilisateur.Grade) HeaderText="Grade" Width="120"></GridColumn>
+                                <GridColumn Field=@nameof(Utilisateur.Fonction) HeaderText="Fonction" Width="150"></GridColumn>
+                                <GridColumn Field=@nameof(Utilisateur.SoldeCarburant) HeaderText="Solde Kilométrique" Width="150" Format="N2"></GridColumn>
+                                <GridColumn Field=@nameof(Utilisateur.Departement) HeaderText="Département" Width="150"></GridColumn>
+                                <GridColumn HeaderText="Actions" Width="150" TextAlign="TextAlign.Center" AllowSorting="false" AllowFiltering="false">
+                                    <Template>
+                                        <i class="bi bi-pencil text-info me-2" style="cursor:pointer" 
+                                           @onclick="() => EditClicked((context as Utilisateur))"></i>
+                                        <i class="bi bi-trash text-danger" style="cursor:pointer" 
+                                           @onclick="() => DeleteClicked((context as Utilisateur))"></i>
+                                    </Template>
+                                </GridColumn>
+                            </GridColumns>
+                        </SfGrid>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<UtilisateurDialog @ref="utilisateurDialog"
+               HandleSaveOperationEvent="HandleSaveOperationEvent"
+                   Utilisateur="Utilisateur" />
+@code {
+    UtilisateurDialog? utilisateurDialog;
+    SfGrid<Utilisateur>? grid;
+
+    Utilisateur Utilisateur = new();
+    public string Title { get; set; } = "Ajouter";
+    public List<Utilisateur> Utilisateurs { get; set; } = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await GetUtilisateurs();
+        allState.Action += StateHasChanged;
+    }
+    private async Task GetUtilisateurs()
+    {
+        Utilisateurs = await utilisateurService.GetAll(MyConstants.UtilisateurBaseUrl);
+    }
+   
+    void OpenDialog()
+    {
+        utilisateurDialog?.OpenDialog();
+    }
+    
+    
+
+    private async Task HandleSaveOperationEvent(Utilisateur utilisateur)
+    {
+        bool successCheck = false;
+
+        if (utilisateur.Id > 0)
+        {
+            var result = await utilisateurService
+                .Update(utilisateur, MyConstants.UtilisateurBaseUrl);
+            successCheck = await DisplayMessage(result.Flag, result.Message);
+        }
+        else
+        {
+            var response = await utilisateurService
+                .Insert(utilisateur, MyConstants.UtilisateurBaseUrl);
+            successCheck = await DisplayMessage(response.Flag, response.Message);
+        }
+
+        if (successCheck)
+        {
+            Utilisateur = new();
+            await GetUtilisateurs();
+            utilisateurDialog?.ChangeTitle("Ajouter");
+        }
+    }
+
+
+    private void EditClicked(Utilisateur utilisateur)
+    {
+        utilisateurDialog?.ChangeTitle("Modifier");
+        Utilisateur = utilisateur;
+        OpenDialog();
+    }
+
+    private async Task DeleteClicked(Utilisateur utilisateur)
+    {
+        bool confirm = await dialogService.ConfirmAsync("Êtes-vous sûr de vouloir supprimer cette personne ?", "Confirmation de suppression");
+        if (!confirm) return;
+        var response = await utilisateurService.DeleteById(utilisateur.Id, MyConstants.UtilisateurBaseUrl);
+        if (await DisplayMessage(response.Flag, response.Message))
+
+            await GetUtilisateurs();
+
+
+    }
+    
+            
+
+
+    private async Task<bool> DisplayMessage(bool flag, string message)
+    {
+        if (flag)
+        {
+            await dialogService.AlertAsync(message, "Succès !");
+            return true;
+        }
+        else
+        {
+            await dialogService.AlertAsync(message, "Erreur !");
+            return false;
+        }
+
+
+    }
+
+
+
+ 
+ 
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+
+
+
+
+}
+

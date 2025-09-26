@@ -1,0 +1,223 @@
+﻿@implements IDisposable
+@inject IJSRuntime JS
+
+
+@if (allState.ShowRapport)
+{
+
+    <div class="container mt-4">
+
+
+
+        <div class="d-flex justify-content-end mb-3">
+            <button class="btn btn-success shadow-sm" @onclick="PrintReport">
+                <i class="bi bi-printer"></i> Imprimer
+            </button>
+        </div>
+
+        <div class="card shadow-lg p-4" id="reportContent">
+
+
+            
+            <div class="text-center mb-4">
+
+
+                <h3 class="gradient-title">
+                    @($"Évolution des coûts (2010 - {CurrentYear})")
+                </h3>
+            </div>
+            <div class="chart-container mb-5">
+
+                <SfChart Width="100%" Height="400px">
+                <ChartPrimaryXAxis Title="Année" ValueType="Syncfusion.Blazor.Charts.ValueType.Category"></ChartPrimaryXAxis>
+                <ChartPrimaryYAxis Title="Coût (DH)"></ChartPrimaryYAxis>
+
+                <ChartSeriesCollection>
+                    <ChartSeries DataSource="@AnnualCosts"
+                                 XName="Year"
+                                 YName="Cost"
+                                 Type="ChartSeriesType.Column"
+                                 Name="Coût total">
+                    </ChartSeries>
+                </ChartSeriesCollection>
+
+                <ChartLegendSettings Visible="true"></ChartLegendSettings>
+                <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+            </SfChart>
+            </div>
+            <div class="text-center mt-5 mb-4">
+                <h3 class="gradient-title">
+                    Disponibilité des voitures
+                </h3>
+            </div>
+            <div class="chart-container">
+
+
+                <SfAccumulationChart Width="100%" Height="400px">
+                <AccumulationChartSeriesCollection>
+                    <AccumulationChartSeries DataSource="@Disponibilites"
+                                             XName="Statut"
+                                             YName="Nombre"
+                                             Type="AccumulationType.Pie">
+                    </AccumulationChartSeries>
+                </AccumulationChartSeriesCollection>
+            </SfAccumulationChart>
+
+            </div>
+
+
+    </div>
+</div>
+
+
+  
+}  
+<style>
+    .gradient-title {
+        background: linear-gradient(to right, #8A2BE2, #DA70D6);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+        font-weight: bold;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #dee2e6;
+        margin-bottom: 1rem;
+    }
+
+    .chart-container {
+        min-height: 400px;
+    }
+</style>
+<script>
+    function printReport() {
+        var content = document.getElementById('reportContent').innerHTML;
+        var newWindow = window.open('', '', 'width=900,height=700');
+        newWindow.document.write('<html><head><title>Rapport</title>');
+        newWindow.document.write('<style>');
+        newWindow.document.write('body{font-family:sans-serif;margin:0;padding:0;}');
+        newWindow.document.write('.chart-container{min-height:400px;width:100%;display:flex;justify-content:center;}');
+        newWindow.document.write('.gradient-title{background: linear-gradient(to right, #8A2BE2, #DA70D6);-webkit-background-clip:text;color:transparent;font-weight:bold;padding-bottom:0.5rem;border-bottom:2px solid #dee2e6;margin-bottom:1rem;display:inline-block;}');
+        newWindow.document.write('</style>');
+        newWindow.document.write('</head><body>');
+        newWindow.document.write(content);
+        newWindow.document.write('</body></html>');
+        newWindow.document.close();
+        newWindow.focus();
+        newWindow.print();
+        newWindow.close();
+    }
+</script>
+
+@code {
+
+
+
+
+
+    private async Task PrintReport()
+    {
+        await JS.InvokeVoidAsync("window.print");
+    }
+
+    private int NombreVoituresDisponibles;
+    private int NombreVoituresNonDisponibles;
+
+
+    public class VoitureDisponibilite
+    {
+        public string? Statut { get; set; }
+        public int Nombre { get; set; }
+    }
+
+    public List<VoitureDisponibilite> Disponibilites { get; set; } = new();
+
+    private void LoadDisponibilites()
+    {
+        Disponibilites = new List<VoitureDisponibilite>
+{
+    new VoitureDisponibilite
+    {
+        Statut = $"Disponibles ({NombreVoituresDisponibles})",
+        Nombre = NombreVoituresDisponibles
+    },
+    new VoitureDisponibilite
+    {
+        Statut = $"Non disponibles ({NombreVoituresNonDisponibles})",
+        Nombre = NombreVoituresNonDisponibles
+    }
+};
+    }
+
+    private async Task LoadVoitureData()
+    {
+        var voitures = await voitureService.GetAll(MyConstants.VoitureBaseUrl);
+        var affectations = await affectationService.GetAll(MyConstants.AffectationBaseUrl);
+
+        NombreVoituresNonDisponibles = affectations
+            .Where(a => a.DateFin >= DateTime.Today)
+            .Select(a => a.VoitureId)
+            .Distinct()
+            .Count();
+
+        NombreVoituresDisponibles = voitures.Count - NombreVoituresNonDisponibles;
+    }
+
+
+    private int CurrentYear = DateTime.Now.Year;
+
+    public class AnnualCost
+    {
+        public string? Year { get; set; }
+        public double? Cost { get; set; }
+    }
+
+    public List<AnnualCost> AnnualCosts { get; set; } = new();
+
+    public List<Entretien> Entretiens { get; set; } = new();
+    public List<DocumentAdministratif> DocumentAdministratifs { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Entretiens = await entretienService.GetAll(MyConstants.EntretienBaseUrl);
+        DocumentAdministratifs = await documentAdministratifService.GetAll(MyConstants.DocumentAdministratifBaseUrl);
+
+        LoadAnnualCosts();
+
+        await LoadVoitureData();
+        LoadDisponibilites();
+
+        allState.Action += StateHasChanged;
+    }
+
+    private void LoadAnnualCosts()
+    {
+        AnnualCosts.Clear();
+
+        for (int annee = 2010; annee <= CurrentYear; annee++)
+        {
+            double? coutEntretiens = Entretiens
+                .Where(e => e.Date.HasValue && e.Date.Value.Year == annee)
+                .Sum(e => e.Cout);
+
+            double? coutDocuments = DocumentAdministratifs
+                .Sum(d =>
+                    (d.DateAssurance.Year == annee ? d.MontantAssurance : 0) +
+                    (d.DateTaxe.Year == annee ? d.MontantTaxe : 0) +
+                    (d.DateDerniereVisite.Year == annee ? d.MontantVisiteTechnique : 0)
+                );
+
+            AnnualCosts.Add(new AnnualCost
+            {
+                Year = annee.ToString(),
+                Cost = coutEntretiens + coutDocuments
+            });
+        }
+    }
+
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+}

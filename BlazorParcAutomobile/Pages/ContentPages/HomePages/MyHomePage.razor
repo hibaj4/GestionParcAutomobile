@@ -1,0 +1,256 @@
+﻿@implements IDisposable
+
+
+
+
+@if (allState.ShowHome)
+{
+    <div class="container-fluid mt-4">
+        <div class="row mb-4 g-3">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Voitures</h5>
+                        <p class="stat-number">@NombreVoitures</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                <div class="card-body">
+                    <h5 class="card-title text-white">Personnel</h5>
+                        <p class="stat-number">@NombreUtilisateurs</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Fournisseurs</h5>
+                        <p class="stat-number">@NombreFournisseurs</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Coût d'entretiens</h5>
+                        <p class="stat-number">@TotalCoutEntretiens DH</p>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+
+        <div class="row mb-4 g-3">
+
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Coût des documents</h5>
+                        <p class="stat-number">@TotalCoutDocuments DH</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Total des coûts</h5>
+                        <p class="stat-number">@((TotalCoutEntretiens + TotalCoutDocuments)) DH</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Disponibilité des voitures</h5>
+                        <div class="d-flex justify-content-between mt-3">
+                            <div>
+                                <p class="stat-small-title">Disponibles</p>
+                                <p class="stat-number">@NombreVoituresDisponibles (@((NombreVoituresDisponibles * 100) / (NombreVoitures == 0 ? 1 : NombreVoitures))%)</p>
+                            </div>
+                            <div>
+                                <p class="stat-small-title">Non disponibles</p>
+                                <p class="stat-number">@NombreVoituresNonDisponibles (@((NombreVoituresNonDisponibles * 100) / (NombreVoitures == 0 ? 1 : NombreVoitures))%)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card text-center shadow-lg border-0 stat-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Solde Kilométrique</h5>
+                        <p class="stat-number">@SoldeKilometrique Km</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+   
+            </div>
+    </div>
+ 
+
+
+
+}
+<style >
+    .stat-card {
+        background: linear-gradient(135deg, #4b0082, #6a0dad, #8a2be2);
+        border-radius: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+    }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+    .stat-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .stat-small-title {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #ddd;
+        margin-bottom: 5px;
+    }
+
+
+
+</style>
+
+
+
+
+@code {
+    private int NombreVoitures;
+    private int NombreUtilisateurs;
+    private int NombreFournisseurs;
+    private double TotalCoutEntretiens;
+    private double TotalCoutDocuments;
+    private double SoldeKilometrique;
+
+
+
+
+    private int NombreVoituresDisponibles;
+    private int NombreVoituresNonDisponibles;
+
+    public List<Entretien> Entretiens { get; set; } = new();
+    public List<DocumentAdministratif> DocumentAdministratifs { get; set; } = new();
+
+
+    public List<Affectation> Affectations { get; set; } = new();
+
+    public List<Voiture> Voitures { get; set; } = new();
+    public List<Utilisateur> Utilisateurs { get; set; } = new();
+    public List<Fournisseur> Fournisseurs { get; set; } = new();
+
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        await LoadData();
+        allState.Action += async () =>
+        {
+            await LoadData();
+            StateHasChanged();
+        };
+    }
+
+    private async Task LoadData()
+    {
+        Voitures = await voitureService.GetAll(MyConstants.VoitureBaseUrl);
+        NombreVoitures = Voitures?.Count ?? 0;
+
+        Utilisateurs = await utilisateurService.GetAll(MyConstants.UtilisateurBaseUrl);
+        NombreUtilisateurs = Utilisateurs?.Count ?? 0;
+
+        Fournisseurs = await fournisseurService.GetAll(MyConstants.FournisseurBaseUrl);
+        NombreFournisseurs = Fournisseurs?.Count ?? 0;
+
+
+
+        Entretiens = await entretienService.GetAll(MyConstants.EntretienBaseUrl);
+
+        TotalCoutEntretiens = Entretiens?
+     .Where(e => e.Date.HasValue && e.Date.Value.Year == DateTime.Now.Year)
+
+     .Sum(e => e.Cout) ?? 0;
+
+
+        var year = DateTime.Now.Year;
+
+
+
+
+
+
+
+        SoldeKilometrique = Utilisateurs?
+
+     .Sum(u => u.SoldeCarburant) ?? 0;
+
+
+
+        DocumentAdministratifs = await documentAdministratifService.GetAll(MyConstants.DocumentAdministratifBaseUrl);
+
+        TotalCoutDocuments = DocumentAdministratifs?
+            .Sum(d =>
+                (d.DateAssurance.Year == year ? d.MontantAssurance : 0) +
+                (d.DateTaxe.Year == year ? d.MontantTaxe : 0) +
+                (d.DateDerniereVisite.Year == year ? d.MontantVisiteTechnique : 0)
+            ) ?? 0;
+        Affectations = await affectationService.GetAll(MyConstants.AffectationBaseUrl);
+
+        NombreVoituresNonDisponibles = Affectations
+            .Where(a => a.DateFin >= DateTime.Today)
+            .Select(a => a.VoitureId)
+            .Distinct()
+            .Count();
+
+        NombreVoituresDisponibles = NombreVoitures - NombreVoituresNonDisponibles;
+    
+    
+    }
+
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+}

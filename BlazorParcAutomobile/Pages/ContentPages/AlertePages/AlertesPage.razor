@@ -1,0 +1,222 @@
+﻿@implements IDisposable
+@if (allState.ShowAlerte)
+{
+     <h5 class="page-title">Alertes</h5>
+    <div class="alert-list">
+        @foreach (var alerte in Alertes)
+        {
+            <div class="alert-card @($"alert-{alerte.Type}")">
+                <div class="alert-icon">
+                    <i class="bi @alerte.Icon"></i>
+                </div>
+                <div class="alert-content">
+                    <p class="alert-message">@alerte.Message</p>
+                    <span class="alert-date">
+                        <i class="bi bi-calendar-event me-1"></i> 
+                        @alerte.Date.ToString("dd/MM/yyyy")
+                    </span>
+                </div>
+                <span class="alert-badge">@alerte.Type?.ToUpper()</span>
+            </div>
+        }
+    </div>
+	
+
+}
+
+<style>
+
+    .page-title {
+     
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 0.3rem;
+    }
+
+   
+
+    .alert-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .alert-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .alert-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+    .alert-icon {
+        font-size: 1.8rem;
+        margin-right: 1rem;
+    }
+
+    .alert-content {
+        flex: 1;
+    }
+
+    .alert-message {
+        font-weight: 500;
+        margin: 0;
+        color: #333;
+    }
+
+    .alert-date {
+        font-size: 0.8rem;
+        color: #666;
+    }
+
+    /* Badge type */
+    .alert-badge {
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 0.3rem 0.6rem;
+        border-radius: 20px;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    /* Couleurs par type */
+    .alert-error {
+        border-left: 5px solid #e74c3c;
+        background-color: #fdecea;
+        color: #c0392b;
+    }
+
+        .alert-error .alert-badge {
+            background: #e74c3c;
+            color: white;
+        }
+
+    .alert-warning {
+        border-left: 5px solid #f39c12;
+        background-color: #fff8e5;
+        color: #b9770e;
+    }
+
+        .alert-warning .alert-badge {
+            background: #f39c12;
+            color: white;
+        }
+
+    .alert-info {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5ff;
+        color: #21618c;
+    }
+
+        .alert-info .alert-badge {
+            background: #3498db;
+            color: white;
+        }
+
+
+</style>
+@code {
+    public List<Entretien> Entretiens { get; set; } = new();
+
+    public class AlerteItem
+    {
+        public string? Message { get; set; }
+        public DateTime Date { get; set; }
+        public string? Type { get; set; } 
+        public string? Icon { get; set; } 
+    }
+
+    private List<AlerteItem> Alertes { get; set; } = new();
+    public List<DocumentAdministratif> DocumentAdministratifs { get; set; } = new();
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadAlertes();
+        allState.Action += StateHasChanged;
+    }
+
+
+   
+    private async Task LoadAlertes()
+    {
+        Alertes.Clear();
+
+        Entretiens = await entretienService.GetAll(MyConstants.EntretienBaseUrl);
+        DocumentAdministratifs = await documentAdministratifService.GetAll(MyConstants.DocumentAdministratifBaseUrl);
+
+
+
+        var today = DateTime.Today;
+
+        // Entretiens dans moins de 7 jours
+        foreach (var e in Entretiens)
+        {
+            if (e.DateProchain.HasValue && (e.DateProchain.Value - today).TotalDays <= 7 && (e.DateProchain.Value - today).TotalDays >= 0)
+            {
+                Alertes.Add(new AlerteItem
+                {
+                    Message = $"Service pour voiture {(e.Voiture?.Marque ?? e.VoitureId.ToString())}  (Immat: {e.Voiture?.Immatriculation ?? e.VoitureId.ToString()}) prévu le {e.DateProchain.Value:dd/MM/yyyy}",
+                    Date = e.DateProchain.Value,
+                    Type = "warning",
+                    Icon = "bi-tools"
+                });
+            }
+        }
+
+        foreach (var d in DocumentAdministratifs)
+        {
+            // Vérifier assurance
+            if ((d.DateExpirationAssurance - today).TotalDays <= 7 && (d.DateExpirationAssurance - today).TotalDays >= 0)
+            {
+                Alertes.Add(new AlerteItem
+                {
+                    Message = $"Assurance de la voiture {(d.Voiture?.Marque ?? d.VoitureId.ToString())}  (Immat: {d.Voiture?.Immatriculation ?? d.VoitureId.ToString()}) expire le {d.DateExpirationAssurance:dd/MM/yyyy}",
+                    Date = d.DateExpirationAssurance,
+                    Type = "error",
+                    Icon = "bi-file-earmark-excel-fill"
+                });
+            }
+
+            // Vérifier taxe
+            if ((d.DateExpirationTaxe - today).TotalDays <= 7 && (d.DateExpirationTaxe - today).TotalDays >= 0)
+            {
+                Alertes.Add(new AlerteItem
+                {
+                    Message = $"Taxe de la voiture {(d.Voiture?.Marque ?? d.VoitureId.ToString())}  (Immat: {d.Voiture?.Immatriculation ?? d.VoitureId.ToString()}) expire le {d.DateExpirationTaxe:dd/MM/yyyy}",
+                    Date = d.DateExpirationTaxe,
+                    Type = "error",
+                    Icon = "bi-file-earmark-excel-fill"
+                });
+            }
+
+            // Vérifier visite technique
+            if ((d.DateProchaineVisite - today).TotalDays <= 7 && (d.DateProchaineVisite - today).TotalDays >= 0)
+            {
+                Alertes.Add(new AlerteItem
+                {
+                    Message = $"Prochaine visite technique de la voiture {(d.Voiture?.Marque ?? d.VoitureId.ToString())}  (Immat: {d.Voiture?.Immatriculation ?? d.VoitureId.ToString()}) le {d.DateProchaineVisite:dd/MM/yyyy}",
+                    Date = d.DateProchaineVisite,
+                    Type = "warning",
+                    Icon = "bi-tools"
+                });
+            }
+        }
+
+        // Trier par date
+        Alertes = Alertes.OrderBy(a => a.Date).ToList();
+    }
+
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+}

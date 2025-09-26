@@ -1,0 +1,149 @@
+﻿@implements IDisposable
+@if (allState.ShowFournisseurs)
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+
+                        <h5 class="float-start">Fournisseurs</h5>
+                        <button class="btn btn-outline-success float-end" @onclick="OpenDialog">
+                            <i class="bi bi-plus-circle-dotted"></i> Ajouter un fournisseur                                                                                                   
+                        </button>
+                    </div>
+                    </div>
+                    <div class="card-body" style="max-height:558px; overflow-y:auto;">
+                        <SfGrid @ref="gridFournisseurs"
+                                TValue="Fournisseur"
+                                DataSource="@Fournisseurs"
+                                AllowPaging="true"
+                                AllowSorting="true"
+                                AllowFiltering="true"
+                                AllowResizing="true"
+                                Toolbar="@(new List<string> {"Print", "Search"})"
+                                Height="550px">
+
+                            <GridColumns>
+                                <GridColumn Field=@nameof(Fournisseur.Nom) HeaderText="Nom Complet" Width="200"></GridColumn>
+                                <GridColumn Field=@nameof(Fournisseur.Tel) HeaderText="Téléphone" Width="150"></GridColumn>
+                                <GridColumn Field=@nameof(Fournisseur.Specialite) HeaderText="Spécialité" Width="200"></GridColumn>
+
+                                <GridColumn HeaderText="Actions" Width="150" TextAlign="TextAlign.Center"
+                                            AllowSorting="false" AllowFiltering="false">
+                                    <Template>
+                                        <i class="bi bi-pencil text-info me-2" style="cursor:pointer"
+                                           @onclick="() => EditClicked((context as Fournisseur))"></i>
+                                        <i class="bi bi-trash text-danger" style="cursor:pointer"
+                                           @onclick="() => DeleteClicked((context as Fournisseur))"></i>
+                                    </Template>
+                                </GridColumn>
+                            </GridColumns>
+                        </SfGrid>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<FournisseurDialog @ref="fournisseurDialog"
+                   HandleSaveOperationEvent="HandleSaveOperationEvent"
+                   Fournisseur="Fournisseur" />
+@code {
+    FournisseurDialog? fournisseurDialog;
+    SfGrid<Fournisseur>? gridFournisseurs;
+
+    Fournisseur Fournisseur = new();
+    public string Title { get; set; } = "Ajouter";
+    public List<Fournisseur> Fournisseurs { get; set; } = new();
+    protected async override Task OnInitializedAsync()
+    {
+        await GetFournisseurs();
+        allState.Action += StateHasChanged;
+    }
+    private async Task GetFournisseurs()
+    {
+        Fournisseurs = await fournisseurService.GetAll(MyConstants.FournisseurBaseUrl);
+    }
+
+    void OpenDialog()
+    {
+        fournisseurDialog?.OpenDialog();
+    }
+
+
+
+    private async Task HandleSaveOperationEvent(Fournisseur fournisseur)
+    {
+        bool successCheck = false;
+
+        if (fournisseur.Id > 0)
+        {
+            var result = await fournisseurService
+                .Update(fournisseur, MyConstants.FournisseurBaseUrl);
+            successCheck = await DisplayMessage(result.Flag, result.Message);
+        }
+        else
+        {
+            var response = await fournisseurService
+                .Insert(fournisseur, MyConstants.FournisseurBaseUrl);
+            successCheck = await DisplayMessage(response.Flag, response.Message);
+        }
+
+        if (successCheck)
+        {
+            Fournisseur = new();
+            await GetFournisseurs();
+            fournisseurDialog?.ChangeTitle("Ajouter");
+        }
+    }
+
+
+    private void EditClicked(Fournisseur fournisseur)
+    {
+        fournisseurDialog?.ChangeTitle("Modifier");
+        Fournisseur = fournisseur;
+        OpenDialog();
+    }
+
+    private async Task DeleteClicked(Fournisseur fournisseur)
+    {
+        bool confirm = await dialogService.ConfirmAsync("Êtes-vous sûr de vouloir supprimer cette personne ?", "Confirmation de suppression");
+        if (!confirm) return;
+        var response = await fournisseurService.DeleteById(fournisseur.Id, MyConstants.FournisseurBaseUrl);
+        if (await DisplayMessage(response.Flag, response.Message))
+
+            await GetFournisseurs();
+
+
+    }
+
+    
+
+
+    private async Task<bool> DisplayMessage(bool flag, string message)
+    {
+        if (flag)
+        {
+            await dialogService.AlertAsync(message, "Succès !");
+            return true;
+        }
+        else
+        {
+            await dialogService.AlertAsync(message, "Erreur !");
+            return false;
+        }
+
+
+    }
+
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+
+
+
+
+}

@@ -1,0 +1,877 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\parcautomobile\\parcautomobile.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|solutionrelative:parcautomobile.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\blazorparcautomobile.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\clientlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\parcautomobile\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\parcautomobile\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\parcautomobile\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\blazorparcautomobile.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\applicationstates\\allstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\parcautomobile\\parcautomobile.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|solutionrelative:parcautomobile.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\sharedlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE38C56-5D66-4B23-8FFC-9AAA1BD294BE}|..\\ServerLibrary\\ServerLibrary.csproj|c:\\users\\rpc\\source\\repos\\serverlibrary\\serverlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE38C56-5D66-4B23-8FFC-9AAA1BD294BE}|..\\ServerLibrary\\ServerLibrary.csproj|c:\\users\\rpc\\source\\repos\\serverlibrary\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\responses\\generalresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\contentpages\\alertepages\\alertespage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\accountpages\\registerpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\entretien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\fournisseur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\contentpages\\voiturepages\\voiturespage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\contentpages\\affectationpages\\affectationspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\contentpages\\trajetpages\\trajetspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\contentpages\\fournisseurpages\\fournisseurspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\parcautomobile\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\voiture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\helpers\\myconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\services\\implementations\\genericserviceimplementation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\services\\contracts\\igenericserviceinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\services\\implementations\\useraccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE38C56-5D66-4B23-8FFC-9AAA1BD294BE}|..\\ServerLibrary\\ServerLibrary.csproj|c:\\users\\rpc\\source\\repos\\serverlibrary\\repositories\\implementations\\useraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE38C56-5D66-4B23-8FFC-9AAA1BD294BE}|..\\ServerLibrary\\ServerLibrary.csproj|c:\\users\\rpc\\source\\repos\\serverlibrary\\repositories\\implementations\\voiturerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE38C56-5D66-4B23-8FFC-9AAA1BD294BE}|..\\ServerLibrary\\ServerLibrary.csproj|c:\\users\\rpc\\source\\repos\\serverlibrary\\repositories\\implementations\\trajetrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\services\\implementations\\voitureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\parcautomobile\\controllers\\affectationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{453246F9-297F-4C0D-9386-6BBAB0D72427}|ParcAutomobile.csproj|solutionrelative:controllers\\affectationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\refreshtokeninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\systemrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\documentadministratif.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\trajet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\entities\\affectation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\accountpages\\loginpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE38C56-5D66-4B23-8FFC-9AAA1BD294BE}|..\\ServerLibrary\\ServerLibrary.csproj|c:\\users\\rpc\\source\\repos\\serverlibrary\\repositories\\implementations\\affectationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\contentpages\\rapportpages\\rapportpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\pages\\contentpages\\homepages\\myhomepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\dtos\\importervoiturerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\services\\contracts\\ivoitureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\services\\implementations\\trajetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9776F049-85E1-4983-BCAF-0968EC17F766}|..\\ClientLibrary\\ClientLibrary.csproj|c:\\users\\rpc\\source\\repos\\clientlibrary\\services\\contracts\\itrajetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\RPC\\.nuget\\packages\\epplus\\8.1.0\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A16DCC2-A9FE-49F1-8257-1243919C471F}|..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj|c:\\users\\rpc\\source\\repos\\blazorparcautomobile\\layout\\authentificationlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\dtos\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54A5FE91-F481-4F30-B480-59C70D8B41D4}|..\\SharedLibrary\\SharedLibrary.csproj|c:\\users\\rpc\\source\\repos\\sharedlibrary\\dtos\\accountbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CE38C56-5D66-4B23-8FFC-9AAA1BD294BE}|..\\ServerLibrary\\ServerLibrary.csproj|c:\\users\\rpc\\source\\repos\\serverlibrary\\data\\migrations\\20250907004100_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BlazorParcAutomobile",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-08T01:58:09.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ParcAutomobile.csproj",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\ParcAutomobile.csproj",
+              "RelativeDocumentMoniker": "ParcAutomobile.csproj",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\ParcAutomobile.csproj",
+              "RelativeToolTip": "ParcAutomobile.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-05T00:24:27.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientLibrary.csproj",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\ClientLibrary.csproj",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\ClientLibrary.csproj",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\ClientLibrary.csproj",
+              "RelativeToolTip": "..\\ClientLibrary\\ClientLibrary.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-08T01:53:47.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Program.cs",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Program.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Program.cs",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Program.cs",
+              "ViewState": "AgIAABIAAACAZmZmZmYkwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T15:14:36.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BlazorParcAutomobile.csproj",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\BlazorParcAutomobile.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-07T00:23:47.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Properties\\launchSettings.json",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-08T01:58:17.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-08T01:58:34.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-08T02:01:25.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-08T01:58:38.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ParcAutomobile",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\ParcAutomobile.csproj",
+              "RelativeDocumentMoniker": "ParcAutomobile.csproj",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\ParcAutomobile.csproj",
+              "RelativeToolTip": "ParcAutomobile.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-08T01:54:10.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SharedLibrary.csproj",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\SharedLibrary.csproj",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\SharedLibrary.csproj",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\SharedLibrary.csproj",
+              "RelativeToolTip": "..\\SharedLibrary\\SharedLibrary.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-08T01:53:54.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ServerLibrary.csproj",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\ServerLibrary.csproj",
+              "RelativeDocumentMoniker": "..\\ServerLibrary\\ServerLibrary.csproj",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\ServerLibrary.csproj",
+              "RelativeToolTip": "..\\ServerLibrary\\ServerLibrary.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-08T01:53:28.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GeneralResponse.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Responses\\GeneralResponse.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Responses\\GeneralResponse.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Responses\\GeneralResponse.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Responses\\GeneralResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T01:50:12.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Entretien.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Entretien.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\Entretien.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Entretien.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\Entretien.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:24:36.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AllState.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\ApplicationStates\\AllState.cs",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\ApplicationStates\\AllState.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\ApplicationStates\\AllState.cs",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\ApplicationStates\\AllState.cs",
+              "ViewState": "AgIAAHsAAAAAzczMzMwqwIUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T00:23:02.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AlertesPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\AlertePages\\AlertesPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\AlertePages\\AlertesPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\AlertePages\\AlertesPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\AlertePages\\AlertesPage.razor",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAmwNUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-02T13:44:41.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RegisterPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\AccountPages\\RegisterPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\AccountPages\\RegisterPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\AccountPages\\RegisterPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\AccountPages\\RegisterPage.razor",
+              "ViewState": "AgIAAA0AAACAMzMzMzMrwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-12T15:25:22.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "..\\ServerLibrary\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "..\\ServerLibrary\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T00:21:44.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Fournisseur.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Fournisseur.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\Fournisseur.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Fournisseur.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\Fournisseur.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:32:25.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Utilisateur.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Utilisateur.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\Utilisateur.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Utilisateur.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\Utilisateur.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T15:53:14.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "20250907004100_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Data\\Migrations\\20250907004100_InitialCreate.cs",
+              "RelativeDocumentMoniker": "..\\ServerLibrary\\Data\\Migrations\\20250907004100_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Data\\Migrations\\20250907004100_InitialCreate.cs",
+              "RelativeToolTip": "..\\ServerLibrary\\Data\\Migrations\\20250907004100_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T00:41:01.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AffectationsPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\AffectationPages\\AffectationsPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\AffectationPages\\AffectationsPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\AffectationPages\\AffectationsPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\AffectationPages\\AffectationsPage.razor",
+              "ViewState": "AgIAALwAAAAAAAAAAAAawM0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T17:33:12.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TrajetsPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\TrajetPages\\TrajetsPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\TrajetPages\\TrajetsPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\TrajetPages\\TrajetsPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\TrajetPages\\TrajetsPage.razor",
+              "ViewState": "AgIAALoAAAAAAAAAAAAawMsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T00:43:33.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FournisseursPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\FournisseurPages\\FournisseursPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\FournisseurPages\\FournisseursPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\FournisseurPages\\FournisseursPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\FournisseurPages\\FournisseursPage.razor",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAawJQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T00:41:08.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\_Imports.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\_Imports.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\_Imports.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\_Imports.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAWwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-07T00:26:35.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "VoituresPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\VoiturePages\\VoituresPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\VoiturePages\\VoituresPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\VoiturePages\\VoituresPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\VoiturePages\\VoituresPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-05T15:11:30.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAawDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T00:25:34.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Voiture.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Voiture.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\Voiture.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Voiture.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\Voiture.cs",
+              "ViewState": "AgIAABYAAABgZmZmZmYvwB0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:14:44.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "MyConstants.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Helpers\\MyConstants.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Helpers\\MyConstants.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Helpers\\MyConstants.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Helpers\\MyConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T00:22:31.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "GenericServiceImplementation.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\GenericServiceImplementation.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Services\\Implementations\\GenericServiceImplementation.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\GenericServiceImplementation.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Services\\Implementations\\GenericServiceImplementation.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAwPQAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T00:22:08.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IGenericServiceInterface.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Contracts\\IGenericServiceInterface.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Services\\Contracts\\IGenericServiceInterface.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Contracts\\IGenericServiceInterface.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Services\\Contracts\\IGenericServiceInterface.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T21:27:27.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "UserAccountService.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\UserAccountService.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Services\\Implementations\\UserAccountService.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\UserAccountService.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Services\\Implementations\\UserAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T00:22:04.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "UserAccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\UserAccountRepository.cs",
+              "RelativeDocumentMoniker": "..\\ServerLibrary\\Repositories\\Implementations\\UserAccountRepository.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\UserAccountRepository.cs",
+              "RelativeToolTip": "..\\ServerLibrary\\Repositories\\Implementations\\UserAccountRepository.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAYwJwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T17:52:57.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "VoitureRepository.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\VoitureRepository.cs",
+              "RelativeDocumentMoniker": "..\\ServerLibrary\\Repositories\\Implementations\\VoitureRepository.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\VoitureRepository.cs",
+              "RelativeToolTip": "..\\ServerLibrary\\Repositories\\Implementations\\VoitureRepository.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAswMUAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T00:45:09.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "VoitureService.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\VoitureService.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Services\\Implementations\\VoitureService.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\VoitureService.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Services\\Implementations\\VoitureService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T17:28:53.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "TrajetRepository.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\TrajetRepository.cs",
+              "RelativeDocumentMoniker": "..\\ServerLibrary\\Repositories\\Implementations\\TrajetRepository.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\TrajetRepository.cs",
+              "RelativeToolTip": "..\\ServerLibrary\\Repositories\\Implementations\\TrajetRepository.cs",
+              "ViewState": "AgIAANUAAAAAMzMzMzMlwKAAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T23:18:08.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:48:43.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "RefreshTokenInfo.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\RefreshTokenInfo.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\RefreshTokenInfo.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\RefreshTokenInfo.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\RefreshTokenInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:48:33.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "AffectationController.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\Controllers\\AffectationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AffectationController.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ParcAutomobile\\Controllers\\AffectationController.cs",
+              "RelativeToolTip": "Controllers\\AffectationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T15:44:32.918Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "SystemRole.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\SystemRole.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\SystemRole.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\SystemRole.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\SystemRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:48:16.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\UserRole.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\UserRole.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\UserRole.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:48:04.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "DocumentAdministratif.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\DocumentAdministratif.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\DocumentAdministratif.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\DocumentAdministratif.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\DocumentAdministratif.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T16:31:58.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Trajet.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Trajet.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\Trajet.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Trajet.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\Trajet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T21:03:30.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Affectation.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Affectation.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\Entities\\Affectation.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\Entities\\Affectation.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\Entities\\Affectation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T21:03:51.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "LoginPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\AccountPages\\LoginPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\AccountPages\\LoginPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\AccountPages\\LoginPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\AccountPages\\LoginPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-28T14:57:52.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "RapportPage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\RapportPages\\RapportPage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\RapportPages\\RapportPage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\RapportPages\\RapportPage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\RapportPages\\RapportPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T13:28:09.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "AffectationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\AffectationRepository.cs",
+              "RelativeDocumentMoniker": "..\\ServerLibrary\\Repositories\\Implementations\\AffectationRepository.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ServerLibrary\\Repositories\\Implementations\\AffectationRepository.cs",
+              "RelativeToolTip": "..\\ServerLibrary\\Repositories\\Implementations\\AffectationRepository.cs",
+              "ViewState": "AgIAACcAAADAzMzMzMw6wA8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T15:42:37.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "MyHomePage.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\HomePages\\MyHomePage.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\HomePages\\MyHomePage.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Pages\\ContentPages\\HomePages\\MyHomePage.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Pages\\ContentPages\\HomePages\\MyHomePage.razor",
+              "ViewState": "AgIAALwAAAAANjMzMzMbwKYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-18T13:18:50.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "ImporterVoitureRequest.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\DTOs\\ImporterVoitureRequest.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\DTOs\\ImporterVoitureRequest.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\DTOs\\ImporterVoitureRequest.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\DTOs\\ImporterVoitureRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T20:26:32.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "IVoitureService.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Contracts\\IVoitureService.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Services\\Contracts\\IVoitureService.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Contracts\\IVoitureService.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Services\\Contracts\\IVoitureService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T17:27:36.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "TrajetService.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\TrajetService.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Services\\Implementations\\TrajetService.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Implementations\\TrajetService.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Services\\Implementations\\TrajetService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T18:06:54.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ITrajetService.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Contracts\\ITrajetService.cs",
+              "RelativeDocumentMoniker": "..\\ClientLibrary\\Services\\Contracts\\ITrajetService.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\ClientLibrary\\Services\\Contracts\\ITrajetService.cs",
+              "RelativeToolTip": "..\\ClientLibrary\\Services\\Contracts\\ITrajetService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T12:27:43.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "readme.txt",
+              "DocumentMoniker": "C:\\Users\\RPC\\.nuget\\packages\\epplus\\8.1.0\\readme.txt",
+              "RelativeDocumentMoniker": "..\\..\\..\\.nuget\\packages\\epplus\\8.1.0\\readme.txt",
+              "ToolTip": "C:\\Users\\RPC\\.nuget\\packages\\epplus\\8.1.0\\readme.txt",
+              "RelativeToolTip": "..\\..\\..\\.nuget\\packages\\epplus\\8.1.0\\readme.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-08-16T17:12:54.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "AuthentificationLayout.razor",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Layout\\AuthentificationLayout.razor",
+              "RelativeDocumentMoniker": "..\\BlazorParcAutomobile\\Layout\\AuthentificationLayout.razor",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\Layout\\AuthentificationLayout.razor",
+              "RelativeToolTip": "..\\BlazorParcAutomobile\\Layout\\AuthentificationLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T13:29:05.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\DTOs\\Login.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\DTOs\\Login.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\DTOs\\Login.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\DTOs\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T21:30:09.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "AccountBase.cs",
+              "DocumentMoniker": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\DTOs\\AccountBase.cs",
+              "RelativeDocumentMoniker": "..\\SharedLibrary\\DTOs\\AccountBase.cs",
+              "ToolTip": "C:\\Users\\RPC\\source\\repos\\SharedLibrary\\DTOs\\AccountBase.cs",
+              "RelativeToolTip": "..\\SharedLibrary\\DTOs\\AccountBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T21:30:12.359Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

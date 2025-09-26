@@ -1,0 +1,207 @@
+﻿@implements IDisposable
+@if (allState.ShowAffectations)
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h5 class="float-start">Historique</h5>
+                        <button class="btn btn-outline-success float-end" @onclick="AddButtonClicked">
+                            <i class="bi bi-plus-circle-dotted"></i> Ajouter une affectation
+                        </button>
+                    </div>
+                    <div class="card-header" style="max-height:580px; overflow-x:hidden;overflow-y:scroll;">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Utilisateur</th>
+                                        <th scope="col">Voiture</th>
+                                        <th scope="col">Immatriculation</th>
+                                        <th scope="col">Date début</th>
+                                        <th scope="col">Date fin</th>
+                                        <th scope="col">Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Affectations is not null)
+                                    {
+                                        foreach (var item in Affectations)
+                                        {
+                                            <tr>
+                                                <td>@item.Utilisateur!.Nom</td>
+                                                <td>@item.Voiture!.Marque</td>
+                                                <td>@item.Voiture!.Immatriculation</td>
+                                                <td>@item.DateDebut</td>
+                                                <td>@item.DateFin</td>
+
+                                                <td>
+                                                    <i class="bi bi-pencil text-info" id="cursorStyle"
+                                                       @onclick="() => EditClicked(item)"></i>
+                                                    <i class="bi bi-trash text-danger" id="cursorStyle"
+                                                       @onclick="() => DeleteClicked(item)"></i>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="4"><div class="alert alert-info text-center">Aucun historique ajoutée pour le moment</div></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+<style>
+    #cursorStyle {
+        cursor: pointer;
+    }
+</style>
+
+<AffectationDialog @ref="affectationDialog"
+                   HandleSaveOperationEvent="HandleSaveOperationEvent"
+                   Affectation="Affectation"
+                   Utilisateurs="Utilisateurs"
+                   Voitures="Voitures" />
+
+
+
+
+
+
+
+
+
+ 
+@code {
+    public string Title { get; set; } = "Ajouter";
+    AffectationDialog? affectationDialog;
+    Affectation Affectation = new();
+    public List<Affectation> Affectations { get; set; } = new();
+    public List<Utilisateur> Utilisateurs { get; set; } = new();
+    public List<Voiture> Voitures { get; set; } = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await GetAffectations();
+        await GetUtilisateurs();
+        await GetVoitures();
+        allState.Action += StateHasChanged;
+    }
+    private async Task GetAffectations()
+    {
+        Affectations = await affectationService.GetAll(MyConstants.AffectationBaseUrl);
+    }
+    private async Task GetUtilisateurs()
+    {
+        Utilisateurs = await utilisateurService.GetAll(MyConstants.UtilisateurBaseUrl);
+    }
+    private async Task GetVoitures()
+    {
+        Voitures = await voitureService.GetAll(MyConstants.VoitureBaseUrl);
+    }
+
+    void AddButtonClicked()
+    {
+        affectationDialog?.ChangeTitle("Ajouter");
+        Affectation = new();
+        OpenDialog();
+    }
+
+    void OpenDialog()
+    {
+        affectationDialog?.OpenDialog();
+    }
+
+
+
+    private async Task HandleSaveOperationEvent()
+    {
+        bool successCheck = false;
+
+        if (Affectation.Id > 0)
+        {
+            var result = await affectationService
+                .Update(Affectation, MyConstants.AffectationBaseUrl);
+            successCheck = await DisplayMessage(result.Flag, result.Message);
+        }
+        else
+        {
+            var response = await affectationService
+                .Insert(Affectation, MyConstants.AffectationBaseUrl);
+            successCheck = await DisplayMessage(response.Flag, response.Message);
+        }
+
+        if (successCheck)
+        {
+            Affectation = new();
+            await GetAffectations();
+            affectationDialog?.ChangeTitle("Ajouter");
+        }
+    }
+
+
+    private void EditClicked(Affectation af)
+    {
+        affectationDialog?.ChangeTitle("Modifier");
+        Affectation = af;
+        OpenDialog();
+    }
+
+    private async Task DeleteClicked(Affectation af)
+    {
+        bool confirm = await dialogService.ConfirmAsync("Êtes-vous sûr de vouloir supprimer cette affectation ?", "Confirmation de suppression");
+        if (!confirm) return;
+        var response = await affectationService.DeleteById(af.Id, MyConstants.AffectationBaseUrl);
+        var result = await DisplayMessage(response.Flag, response.Message);
+        if (result)
+
+            await GetAffectations();
+
+
+    }
+
+
+
+
+    private async Task<bool> DisplayMessage(bool flag, string message)
+    {
+        if (flag)
+        {
+            await dialogService.AlertAsync(message, "Succès !");
+            return true;
+        }
+        else
+        {
+            await dialogService.AlertAsync(message, "Erreur !");
+            return false;
+        }
+
+
+    }
+
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+
+
+
+
+}
+

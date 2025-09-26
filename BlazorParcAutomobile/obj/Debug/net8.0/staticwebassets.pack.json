@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\obj\\Debug\\net8.0\\compressed\\ggigpwv4xz.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorParcAutomobile.styles.css",
+      "PackagePath": "staticwebassets\\BlazorParcAutomobile.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\images\\backGround\\hcp.jpg",
+      "PackagePath": "staticwebassets\\images\\backGround\\hcp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\images\\logos\\logo.jpg",
+      "PackagePath": "staticwebassets\\images\\logos\\logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\RPC\\source\\repos\\BlazorParcAutomobile\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorParcAutomobile.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorParcAutomobile.props",
+      "PackagePath": "build\\BlazorParcAutomobile.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorParcAutomobile.props",
+      "PackagePath": "buildMultiTargeting\\BlazorParcAutomobile.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorParcAutomobile.props",
+      "PackagePath": "buildTransitive\\BlazorParcAutomobile.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

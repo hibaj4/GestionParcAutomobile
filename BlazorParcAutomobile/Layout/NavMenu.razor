@@ -1,0 +1,313 @@
+﻿@page "/nav"
+@using BlazorParcAutomobile.ApplicationStates
+
+@using Microsoft.AspNetCore.Components.Authorization
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+@* <div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">
+
+            Hi,
+            <AuthorizeView>
+                <Authorized>@context.User.Identity!.Name</Authorized>
+                <NotAuthorized>Guest</NotAuthorized>
+            </AuthorizeView>
+        </a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+ *@
+
+
+<AuthorizeView>
+    <Authorized>
+        <div class="top-row ps-3 navbar navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">
+                    Bienvenue, @context.User.Identity!.Name
+                </a>
+                <button title="Navigation menu" class="navbar-toggle" @onclick="ToggleNavMenu">
+                    <span class="navbar-toggle-icon"></span>
+                </button>
+            </div>
+        </div>
+
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+
+
+            
+    <nav class="flex-column">
+        
+                <style>
+                    .nav-icon-fix {
+                        line-height: 1;
+                        font-size: 1.1rem; 
+                    }
+                </style>
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="HomeClicked">
+                        <i class="bi bi-layout-text-sidebar  nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Tableau de bord</span>
+                    </NavLink>
+                </div>
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="VoituresClicked">
+                        <i class="bi bi-car-front-fill nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Véhicules</span>
+                    </NavLink>
+                </div>
+                
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="UtilisateursClicked">
+                        <i class="bi bi-people-fill nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Personnel</span>
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="FournisseursClicked">
+                        <i class="bi bi-truck-front-fill nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Fournisseurs</span>
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="EntretiensClicked">
+                        <i class="bi bi-tools nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Services</span>
+                    </NavLink>
+                </div>
+
+
+
+
+
+
+               @*  <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="DocumentsClicked">
+                        <i class="bi bi-folder nav-icon-fix me-2"></i>
+                        <span style="letter-spacing: 0.3px;">Documents</span>
+                    </NavLink>
+                </div> *@
+
+
+
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="ShowDocumentContainer" style="cursor: pointer;" href="javascript:void()">
+                        <div class="hstack gap-1">
+                            <span class="bi bi-folder nav-icon-fix me-2" aria-hidden="true"></span>
+                            <span style="letter-spacing: 0.3px;">Documents</span>
+                        </div>
+                    </NavLink>
+
+                    @* <div class="nav-link p-2 text-white" style="margin-left:5rem; visibility:@DocumentCssStyle">
+                        <ul class="list-group">
+                            <li style="list-style:none" class="cursorStyle">
+                                <a class="nav-link p-2" @onclick="@AssurancesClicked" >
+                                    <div class="hstack text-wrap">
+                                        <span class="bi bi-folder nav-icon-fix me-2" aria-hidden="true"></span>
+                                        <span class="fs-6">Assurance</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="list-style:none" class="cursorStyle">
+                                <a class="nav-link p-2" @onclick="@TaxesClicked" >
+                                    <div class="hstack text-wrap">
+                                        <span class="bi bi-folder nav-icon-fix me-2" aria-hidden="true"></span>
+                                        <span class="fs-6">Taxe</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="list-style:none" class="cursorStyle">
+                                <a class="nav-link p-2"  @onclick="@VisitesClicked" >
+                                    <div class="hstack text-wrap">
+                                        <span class="bi bi-folder nav-icon-fix me-2" aria-hidden="true"></span>
+                                        <span class="fs-6">Visite</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> *@
+
+                @if (ShowHideDocument)
+{
+    <div class="nav-link p-2 text-white" style="margin-left:5rem;">
+        <ul class="list-group">
+            <li style="list-style:none" class="cursorStyle">
+                <a class="nav-link p-2" @onclick="@AssurancesClicked">
+                    <div class="hstack text-wrap">
+                                            <i class="bi bi-shield-check nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span class="fs-6">Assurance</span>
+                    </div>
+                </a>
+            </li>
+            <li style="list-style:none" class="cursorStyle">
+                <a class="nav-link p-2" @onclick="@TaxesClicked">
+                    <div class="hstack text-wrap">
+                                            <i class="bi bi-receipt nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span class="fs-6">Taxe</span>
+                    </div>
+                </a>
+            </li>
+            <li style="list-style:none" class="cursorStyle">
+                <a class="nav-link p-2" @onclick="@VisitesClicked">
+                    <div class="hstack text-wrap">
+                                            <i class="bi bi-clipboard-check nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span class="fs-6">Visite</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+</div>
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="TrajetsClicked">
+                        <i class="bi-signpost-split-fill nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Trajets</span>
+                    </NavLink>
+                </div>
+
+            
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="AffectationsClicked">
+                        <i class="bi bi-clock-history nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Historique</span>
+                    </NavLink>
+                </div>
+
+
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link d-flex align-items-center py-2" @onclick="RapportClicked">
+                        <i class="bi bi-file-bar-graph nav-icon-fix me-2" aria-hidden="true"></i>
+                        <span style="letter-spacing: 0.3px;">Rapport</span>
+                    </NavLink>
+                </div>
+
+
+
+
+
+
+                
+            </nav>
+
+
+
+
+</div>
+
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    void VoituresClicked()
+    {
+        allState.ShowHome = false;
+
+        allState.VoituresClicked();
+
+    }
+    void UtilisateursClicked()
+    {
+        allState.ShowHome = false;
+
+        allState.UtilisateursClicked();
+    }
+    private void AffectationsClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+
+        allState.AffectationsClicked();
+    }
+    private void FournisseursClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+
+        allState.FournisseursClicked();
+    }
+    private void EntretiensClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+
+        allState.EntretiensClicked();
+    }
+   
+    // private void DocumentsClicked(MouseEventArgs args)
+    // {
+    //     allState.DocumentAdministratifsClicked();
+    // }
+    private void AssurancesClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+
+        allState.AssurancesClicked();
+    }
+    private void VisitesClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+
+        allState.VisitesClicked();
+    }
+    private void TaxesClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+
+        allState.TaxesClicked();
+    }
+    private void TrajetsClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+
+        allState.TrajetsClicked();
+    }
+    private void HomeClicked(MouseEventArgs args)
+    {
+        allState.ShowAlerte = false;
+
+        allState.ShowHome = true;
+        allState.HomeClicked();
+    }
+
+    private void RapportClicked(MouseEventArgs args)
+    {
+        allState.ShowHome = false;
+        allState.RapportClicked();
+    }
+    // public string DocumentMargin { get; set; } = "-3.5rem";
+    private string DocumentCssStyle = "hidden";
+    public bool ShowHideDocument { get; set; } = false;
+
+    private void ShowDocumentContainer()
+    {
+        ShowHideDocument = !ShowHideDocument;
+        if (ShowHideDocument)
+        {
+            DocumentCssStyle = "visible";
+        }
+        else
+        {
+            DocumentCssStyle = "hidden";
+        }
+    }
+
+
+
+
+}

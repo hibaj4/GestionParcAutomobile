@@ -1,0 +1,69 @@
+﻿
+
+<SfDialog Width="350px" InModule="true" ShowCloseIcon="true" @bind-Visible="IsVisible">
+    <DialogEvents OnOpen="OpenDialog"></DialogEvents>
+    <DialogTemplates>
+        <Header>@Title un fournisseur</Header>
+        <Content>
+            <EditForm Model="Fournisseur" OnValidSubmit="Save">
+                <div class="card card-vector-success">
+                    <div class="card-body">
+                  
+                      
+                        <div class="form-group">
+                            <label class="form-label">Nom Complet</label>
+                            <InputText @bind-Value="Fournisseur.Nom" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Specialité</label>
+                            <InputText @bind-Value="Fournisseur.Specialite" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Tel</label>
+                            <InputText @bind-Value="Fournisseur.Tel" class="form-control" step="0.01" />
+                        </div>
+
+
+                    </div>
+                </div>
+            </EditForm>
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Enregistrer" Type="ButtonType.Submit" IsPrimary="true" OnClick="Save" />
+    </DialogButtons>
+</SfDialog>
+
+
+@code {
+    [Parameter] public Fournisseur Fournisseur { get; set; } = new();
+    [Parameter] public EventCallback<Fournisseur> HandleSaveOperationEvent { get; set; }
+    private bool IsVisible { get; set; } = false;
+    public string Title { get; set; } = "Ajouter";
+     
+    
+
+    public void OpenDialog()
+    {
+
+        IsVisible = true;
+        StateHasChanged();
+    }
+    public async Task Save()
+    {
+        if (string.IsNullOrEmpty(Fournisseur.Nom))
+            await dialogService.AlertAsync("Entrer le nom complet ", "Alerte !");
+        else
+            await HandleSaveOperationEvent.InvokeAsync(Fournisseur);
+
+    }
+
+    public void ChangeTitle(string title)
+    {
+        Title = title;
+
+    }
+}
+

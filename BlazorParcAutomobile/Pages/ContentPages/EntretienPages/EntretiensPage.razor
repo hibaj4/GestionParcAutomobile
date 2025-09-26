@@ -1,0 +1,221 @@
+﻿@implements IDisposable
+@if (allState.ShowEntretiens)
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h5 class="float-start">Services</h5>
+                        <button class="btn btn-outline-success float-end" @onclick="AddButtonClicked">
+                            <i class="bi bi-plus-circle-dotted"></i> Ajouter un service
+                        </button>
+                    </div>
+                    <div class="card-header" style="max-height:580px; overflow-x:hidden;overflow-y:scroll;">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Immatriculation</th>
+                                        <th scope="col">Voiture</th>
+
+
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Fournisseur</th>
+
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Répéter toutes</th>
+                                        <th scope="col">Coût</th>
+                                        <th scope="col">Prochain d'entretien</th>
+                                        <th scope="col">Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Entretiens is not null)
+                                    {
+                                        foreach (var item in Entretiens)
+                                        {
+                                            <tr>
+                                                <td>@item.Voiture!.Immatriculation</td>
+
+                                               
+                                                <td>@item.Voiture!.Marque</td>
+                                                <td>@item.Description</td>
+                                                <td>@item.Fournisseur!.Nom</td>
+                                                <td>@item.Date</td>
+                                                <td>@item.NbrKm</td>
+                                                <td>@item.Cout DH</td>
+                                                <td>@item.DateProchain</td>
+
+
+
+
+
+                                                <td>
+                                                    <i class="bi bi-pencil text-info" id="cursorStyle"
+                                                       @onclick="() => EditClicked(item)"></i>
+                                                    <i class="bi bi-trash text-danger" id="cursorStyle"
+                                                       @onclick="() => DeleteClicked(item)"></i>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="4"><div class="alert alert-info text-center">Aucun historique ajoutée pour le moment</div></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+<style>
+    #cursorStyle {
+        cursor: pointer;
+    }
+</style>
+
+<EntretienDialog @ref="entretienDialog"
+                   HandleSaveOperationEvent="HandleSaveOperationEvent"
+                   Entretien="Entretien"
+                   Fournisseurs="Fournisseurs"
+                   Voitures="Voitures" />
+
+
+
+
+
+
+
+
+
+@code {
+    public string Title { get; set; } = "Ajouter";
+    EntretienDialog? entretienDialog;
+    Entretien Entretien = new();
+    public List<Entretien> Entretiens { get; set; } = new();
+    public List<Fournisseur> Fournisseurs { get; set; } = new();
+    public List<Voiture> Voitures { get; set; } = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await GetEntretiens();
+        await GetFournisseurs();
+        await GetVoitures();
+        allState.Action += StateHasChanged;
+    }
+    private async Task GetEntretiens()
+    {
+        Entretiens = await entretienService.GetAll(MyConstants.EntretienBaseUrl);
+    }
+    private async Task GetFournisseurs()
+    {
+        Fournisseurs = await fournisseurService.GetAll(MyConstants.FournisseurBaseUrl);
+    }
+    private async Task GetVoitures()
+    {
+        Voitures = await voitureService.GetAll(MyConstants.VoitureBaseUrl);
+    }
+
+    void AddButtonClicked()
+    {
+        entretienDialog?.ChangeTitle("Ajouter");
+        Entretien = new();
+        OpenDialog();
+    }
+
+    void OpenDialog()
+    {
+        entretienDialog?.OpenDialog();
+    }
+
+
+
+    private async Task HandleSaveOperationEvent()
+    {
+        bool successCheck = false;
+
+        if (Entretien.Id > 0)
+        {
+            var result = await entretienService
+                .Update(Entretien, MyConstants.EntretienBaseUrl);
+            successCheck = await DisplayMessage(result.Flag, result.Message);
+        }
+        else
+        {
+            var response = await entretienService
+                .Insert(Entretien, MyConstants.EntretienBaseUrl);
+            successCheck = await DisplayMessage(response.Flag, response.Message);
+        }
+
+        if (successCheck)
+        {
+            Entretien = new();
+            await GetEntretiens();
+            entretienDialog?.ChangeTitle("Ajouter");
+        }
+    }
+
+
+    private void EditClicked(Entretien e)
+    {
+        entretienDialog?.ChangeTitle("Modifier");
+        Entretien = e;
+        OpenDialog();
+    }
+
+    private async Task DeleteClicked(Entretien e)
+    {
+        bool confirm = await dialogService.ConfirmAsync("Êtes-vous sûr de vouloir supprimer cette entretien ?", "Confirmation de suppression");
+        if (!confirm) return;
+        var response = await entretienService.DeleteById(e.Id, MyConstants.EntretienBaseUrl);
+        var result = await DisplayMessage(response.Flag, response.Message);
+        if (result)
+
+            await GetEntretiens();
+
+
+    }
+
+
+
+
+    private async Task<bool> DisplayMessage(bool flag, string message)
+    {
+        if (flag)
+        {
+            await dialogService.AlertAsync(message, "Succès !");
+            return true;
+        }
+        else
+        {
+            await dialogService.AlertAsync(message, "Erreur !");
+            return false;
+        }
+
+
+    }
+
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+
+
+
+
+}
+

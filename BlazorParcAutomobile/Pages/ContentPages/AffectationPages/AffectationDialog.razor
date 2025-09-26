@@ -1,0 +1,125 @@
+﻿<SfDialog Width="280px" IsModal="true" ShowCloseIcon="true" @bind-Visible="IsVisible">
+  <DialogEvents OnOpen="OpenDialog"></DialogEvents>
+  <DialogTemplates>
+    <Header>@Title Historique</Header>
+    <Content>
+      <EditForm Model="Affectation" Enhance OnSubmit="Save">
+        <div class="card border-success">
+          <div class="card-body">
+            <div class="form-group">
+              <label class="form-label">Id</label>
+              <input @bind="Affectation.Id" class="form-control" disabled />
+            </div>
+              
+            <div class="form-group">
+    <label class="form-label">Date début</label>
+    <input type="datetime-local"
+           class="form-control"
+           @bind="Affectation.DateDebut" />
+</div>
+
+            <div class="form-group">
+    <label class="form-label">Date fin</label>
+    <input type="datetime-local"
+           class="form-control"
+           @bind="Affectation.DateFin" />
+</div>
+
+            <div class="form-group mt-3 mb-3">
+    <label class="form-label">Sélectionner CIN</label>
+    @if (Affectation.Utilisateur != null)
+    {
+        string selected = Affectation.Utilisateur!.CIN!;
+        <SfDropDownList TValue="string" TItem="Utilisateur" Placeholder="@selected" DataSource="Utilisateurs">
+            <DropDownListFieldSettings Value="Id" Text="CIN"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Utilisateur" ValueChange="OnValueChange"></DropDownListEvents>
+
+        </SfDropDownList>
+
+    }
+    else
+    {
+        <SfDropDownList TValue="string" TItem="Utilisateur" Placeholder="Select Utilisateur" DataSource="Utilisateurs">
+            <DropDownListFieldSettings Value="Id" Text="CIN"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Utilisateur" ValueChange="OnValueChange"></DropDownListEvents>
+
+        </SfDropDownList>
+    }
+</div>
+            <div class="form-group mt-3 mb-3">
+    <label class="form-label">Select Immatriculation</label>
+    @if (Affectation.Voiture != null)
+    {
+        string selected = Affectation.Voiture!.Immatriculation!;
+        <SfDropDownList TValue="string" TItem="Voiture" Placeholder="@selected" DataSource="Voitures">
+            <DropDownListFieldSettings Value="Id" Text="Immatriculation"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Voiture" ValueChange="OnVoitureChange"></DropDownListEvents>
+
+        </SfDropDownList>
+
+    }
+    else
+    {
+        <SfDropDownList TValue="string" TItem="Voiture" Placeholder="Select Voiture" DataSource="Voitures">
+            <DropDownListFieldSettings Value="Id" Text="Immatriculation"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Voiture" ValueChange="OnVoitureChange"></DropDownListEvents>
+
+        </SfDropDownList>
+    }
+</div>
+          </div>
+        </div>
+      </EditForm>
+    </Content>
+  </DialogTemplates>
+
+  <DialogButtons>
+      <DialogButton Content="Enregistrer" Type="ButtonType.Submit" IsPrimary="true" OnClick="Save"/>
+
+  </DialogButtons>
+</SfDialog>
+@code {
+
+
+
+    [Parameter] public Affectation Affectation { get; set; } = new();
+    [Parameter] public List<Utilisateur> Utilisateurs { get; set; } = new();
+        [Parameter] public List<Voiture> Voitures { get; set; } = new();
+
+    [Parameter] public EventCallback<Affectation> HandleSaveOperationEvent { get; set; }
+    private bool IsVisible { get; set; } = false;
+    public string Title { get; set; } = "Ajouter";
+    private async void Save()
+    {
+        if ( Affectation.UtilisateurId <=0 || Affectation.VoitureId <=0)
+            await dialogService.AlertAsync("Inexistant ", "Alerte !");
+        else
+            await HandleSaveOperationEvent.InvokeAsync(Affectation);
+
+    }
+    public void OpenDialog()
+    {
+        IsVisible= true;
+        StateHasChanged();
+    }
+    public void ChangeTitle(string title)
+    {
+        Title = title;
+    }
+
+    public void OnValueChange(ChangeEventArgs<string,Utilisateur> args)
+    {
+        Affectation.UtilisateurId = int.Parse(args.Value);
+
+    }
+    public void OnVoitureChange(ChangeEventArgs<string, Voiture> args)
+{
+    Affectation.VoitureId = int.Parse(args.Value);
+}
+
+
+}

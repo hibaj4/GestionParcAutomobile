@@ -1,0 +1,112 @@
+﻿<SfDialog Width="280px" IsModal="true" ShowCloseIcon="true" @bind-Visible="IsVisible">
+  <DialogEvents OnOpen="OpenDialog"></DialogEvents>
+  <DialogTemplates>
+    <Header>@Title Visite</Header>
+    <Content>
+      <EditForm Model="DocumentAdministratif" Enhance OnSubmit="Save">
+        <div class="card border-success">
+          <div class="card-body">
+            <div class="form-group">
+              <label class="form-label">Id</label>
+              <input @bind="DocumentAdministratif.Id" class="form-control" disabled />
+            </div>
+             <div class="form-group mt-3 mb-3">
+    <label class="form-label">Select Immatriculation</label>
+    @if (DocumentAdministratif.Voiture != null)
+    {
+        string selected = DocumentAdministratif.Voiture!.Immatriculation!;
+        <SfDropDownList TValue="string" TItem="Voiture" Placeholder="@selected" DataSource="Voitures">
+            <DropDownListFieldSettings Value="Id" Text="Immatriculation"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Voiture" ValueChange="OnVoitureChange"></DropDownListEvents>
+
+        </SfDropDownList>
+
+    }
+    else
+    {
+        <SfDropDownList TValue="string" TItem="Voiture" Placeholder="Select Voiture" DataSource="Voitures">
+            <DropDownListFieldSettings Value="Id" Text="Immatriculation"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Voiture" ValueChange="OnVoitureChange"></DropDownListEvents>
+
+        </SfDropDownList>
+    }
+</div>
+
+
+ <div class="form-group">
+              <label class="form-label">Date Prochaine Visite</label>
+              <InputDate @bind-Value="DocumentAdministratif.DateProchaineVisite" class="form-control" />
+            </div>
+             <div class="form-group">
+              <label class="form-label">Date Derniere Visite</label>
+              <InputDate @bind-Value="DocumentAdministratif.DateDerniereVisite" class="form-control" />
+            </div>
+             <div class="form-group">
+              <label class="form-label">Montant Visite Technique</label>
+              <InputNumber @bind-Value="DocumentAdministratif.MontantVisiteTechnique" class="form-control" />
+            </div>
+           
+
+
+
+
+
+ 
+
+           
+        
+          
+
+          </div>
+        </div>
+      </EditForm>
+    </Content>
+  </DialogTemplates>
+
+  <DialogButtons>
+      <DialogButton Content="Enregistrer" Type="ButtonType.Submit" IsPrimary="true" OnClick="Save"/>
+
+  </DialogButtons>
+</SfDialog>
+@code {
+
+
+
+    [Parameter] public DocumentAdministratif DocumentAdministratif { get; set; } = new();
+        [Parameter] public List<Voiture> Voitures { get; set; } = new();
+
+    [Parameter] public EventCallback<DocumentAdministratif> HandleSaveOperationEvent { get; set; }
+    private bool IsVisible { get; set; } = false;
+    public string Title { get; set; } = "Ajouter";
+    private async void Save()
+    {
+        if (DocumentAdministratif.VoitureId <=0)
+            await dialogService.AlertAsync("Inexistant ", "Alerte !");
+        else
+            await HandleSaveOperationEvent.InvokeAsync(DocumentAdministratif);
+
+    }
+    public void OpenDialog()
+    {
+        IsVisible= true;
+        StateHasChanged();
+    }
+    public void ChangeTitle(string title)
+    {
+        Title = title;
+    }
+
+   
+    public void OnVoitureChange(ChangeEventArgs<string, Voiture> args)
+{
+    DocumentAdministratif.VoitureId = int.Parse(args.Value);
+}
+
+
+}
+
+
+        
+  

@@ -1,0 +1,151 @@
+﻿<SfDialog Width="280px" IsModal="true" ShowCloseIcon="true" @bind-Visible="IsVisible">
+  <DialogEvents OnOpen="OpenDialog"></DialogEvents>
+  <DialogTemplates>
+    <Header>@Title Service</Header>
+    <Content>
+      <EditForm Model="Entretien" Enhance OnSubmit="Save">
+        <div class="card border-success">
+          <div class="card-body">
+            <div class="form-group">
+              <label class="form-label">Id</label>
+              <input @bind="Entretien.Id" class="form-control" disabled />
+            </div>
+             <div class="form-group mt-3 mb-3">
+    <label class="form-label">Select Immatriculation</label>
+    @if (Entretien.Voiture != null)
+    {
+        string selected = Entretien.Voiture!.Immatriculation!;
+        <SfDropDownList TValue="string" TItem="Voiture" Placeholder="@selected" DataSource="Voitures">
+            <DropDownListFieldSettings Value="Id" Text="Immatriculation"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Voiture" ValueChange="OnVoitureChange"></DropDownListEvents>
+
+        </SfDropDownList>
+
+    }
+    else
+    {
+        <SfDropDownList TValue="string" TItem="Voiture" Placeholder="Select Voiture" DataSource="Voitures">
+            <DropDownListFieldSettings Value="Id" Text="Immatriculation"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Voiture" ValueChange="OnVoitureChange"></DropDownListEvents>
+
+        </SfDropDownList>
+    }
+</div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <InputText @bind-Value="Entretien.Description" class="form-control" />
+            </div>
+              <div class="form-group mt-3 mb-3">
+    <label class="form-label">Select Fournisseur</label>
+    @if (Entretien.Fournisseur != null)
+    {
+        string selected = Entretien.Fournisseur!.Nom!;
+        <SfDropDownList TValue="string" TItem="Fournisseur" Placeholder="@selected" DataSource="Fournisseurs">
+            <DropDownListFieldSettings Value="Id" Text="Nom"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Fournisseur" ValueChange="OnValueChange"></DropDownListEvents>
+
+        </SfDropDownList>
+
+    }
+    else
+    {
+        <SfDropDownList TValue="string" TItem="Fournisseur" Placeholder="Select Fournisseur" DataSource="Fournisseurs">
+            <DropDownListFieldSettings Value="Id" Text="Nom"></DropDownListFieldSettings>
+
+            <DropDownListEvents TValue="string" TItem="Fournisseur" ValueChange="OnValueChange"></DropDownListEvents>
+
+        </SfDropDownList>
+    }
+</div>
+
+
+   <div class="form-group">
+    <label class="form-label">Date</label>
+    <input type="datetime-local"
+           class="form-control"
+           @bind="DateValue"
+           @bind:event="oninput" />
+</div>
+
+
+
+
+                      
+             <div class="form-group">
+              <label class="form-label">Répéter toutes</label>
+              <InputNumber @bind-Value="Entretien.NbrKm" class="form-control" />
+            </div>
+             <div class="form-group">   
+              <label class="form-label">Coût</label>
+              <InputNumber @bind-Value="Entretien.Cout" class="form-control" />
+            </div>
+             <div class="form-group">   
+              <label class="form-label">Prochain d'entretien</label>
+              <InputDate @bind-Value="Entretien.DateProchain" class="form-control" />
+            </div>
+          
+
+          </div>
+        </div>
+      </EditForm>
+    </Content>
+  </DialogTemplates>
+
+  <DialogButtons>
+      <DialogButton Content="Enregistrer" Type="ButtonType.Submit" IsPrimary="true" OnClick="Save"/>
+
+  </DialogButtons>
+</SfDialog>
+@code {
+
+
+
+    [Parameter] public Entretien Entretien { get; set; } = new();
+    [Parameter] public List<Fournisseur> Fournisseurs { get; set; } = new();
+        [Parameter] public List<Voiture> Voitures { get; set; } = new();
+
+    [Parameter] public EventCallback<Entretien> HandleSaveOperationEvent { get; set; }
+
+
+
+    private DateTime DateValue
+{
+    get => Entretien.Date ?? DateTime.Now; 
+    set => Entretien.Date = value;
+}
+
+    private bool IsVisible { get; set; } = false;
+    public string Title { get; set; } = "Ajouter";
+    private async void Save()
+    {
+        if ( Entretien.FournisseurId <=0 || Entretien.VoitureId <=0)
+            await dialogService.AlertAsync("Inexistant ", "Alerte !");
+        else
+            await HandleSaveOperationEvent.InvokeAsync(Entretien);
+
+    }
+    public void OpenDialog()
+    {
+        IsVisible= true;
+        StateHasChanged();
+    }
+    public void ChangeTitle(string title)
+    {
+        Title = title;
+    }
+
+    public void OnValueChange(ChangeEventArgs<string,Fournisseur> args)
+    {
+       Entretien.FournisseurId = int.Parse(args.Value);
+
+    }
+    public void OnVoitureChange(ChangeEventArgs<string, Voiture> args)
+{
+    Entretien.VoitureId = int.Parse(args.Value);
+}
+
+
+}

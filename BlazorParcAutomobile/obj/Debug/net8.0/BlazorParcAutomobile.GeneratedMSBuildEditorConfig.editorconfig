@@ -1,0 +1,147 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazorParcAutomobile
+build_property.RootNamespace = BlazorParcAutomobile
+build_property.ProjectDir = C:\Users\RPC\source\repos\BlazorParcAutomobile\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\RPC\source\repos\BlazorParcAutomobile
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Layout/AuthentificationLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEF1dGhlbnRpZmljYXRpb25MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/AccountPages/LoginPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFBhZ2VzXExvZ2luUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/AccountPages/RegisterPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFBhZ2VzXFJlZ2lzdGVyUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/AuthentificationPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGlmaWNhdGlvblBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/AffectationPages/AffectationDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEFmZmVjdGF0aW9uUGFnZXNcQWZmZWN0YXRpb25EaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/AffectationPages/AffectationsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEFmZmVjdGF0aW9uUGFnZXNcQWZmZWN0YXRpb25zUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/AlertePages/AlertesPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEFsZXJ0ZVBhZ2VzXEFsZXJ0ZXNQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/DocumentPages/AssuranceDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXERvY3VtZW50UGFnZXNcQXNzdXJhbmNlRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/DocumentPages/AssurancesPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXERvY3VtZW50UGFnZXNcQXNzdXJhbmNlc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/DocumentPages/TaxeDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXERvY3VtZW50UGFnZXNcVGF4ZURpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/DocumentPages/TaxesPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXERvY3VtZW50UGFnZXNcVGF4ZXNQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/DocumentPages/VisiteDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXERvY3VtZW50UGFnZXNcVmlzaXRlRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/DocumentPages/VisitesPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXERvY3VtZW50UGFnZXNcVmlzaXRlc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/EntretienPages/EntretienDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEVudHJldGllblBhZ2VzXEVudHJldGllbkRpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/EntretienPages/EntretiensPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEVudHJldGllblBhZ2VzXEVudHJldGllbnNQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/FournisseurPages/FournisseurDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEZvdXJuaXNzZXVyUGFnZXNcRm91cm5pc3NldXJEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/FournisseurPages/FournisseursPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEZvdXJuaXNzZXVyUGFnZXNcRm91cm5pc3NldXJzUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/HomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEhvbWVQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/HomePages/MyHomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXEhvbWVQYWdlc1xNeUhvbWVQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/RapportPages/RapportPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXFJhcHBvcnRQYWdlc1xSYXBwb3J0UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/TrajetPages/TrajetDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXFRyYWpldFBhZ2VzXFRyYWpldERpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/TrajetPages/TrajetsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXFRyYWpldFBhZ2VzXFRyYWpldHNQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/UtilisateurPages/UtilisateurDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXFV0aWxpc2F0ZXVyUGFnZXNcVXRpbGlzYXRldXJEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/UtilisateurPages/UtilisateursPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXFV0aWxpc2F0ZXVyUGFnZXNcVXRpbGlzYXRldXJzUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/VoiturePages/VoitureDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXFZvaXR1cmVQYWdlc1xWb2l0dXJlRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/ContentPages/VoiturePages/VoituresPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGVudFBhZ2VzXFZvaXR1cmVQYWdlc1xWb2l0dXJlc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Pages/OtherPages/ButtonLoadingSpinner.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3RoZXJQYWdlc1xCdXR0b25Mb2FkaW5nU3Bpbm5lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-k2yjwgtl8f
+
+[C:/Users/RPC/source/repos/BlazorParcAutomobile/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ut6f64rn2l

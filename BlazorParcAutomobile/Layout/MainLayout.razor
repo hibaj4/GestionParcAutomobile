@@ -1,0 +1,116 @@
+﻿@inherits LayoutComponentBase
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+            <div class="top-row px-4 d-flex justify-content-between align-items-center">
+                <div class="app-name fw-bold fs-4 text-white">
+                    FleetTrack
+                </div>
+
+
+            <AuthorizeView>
+                <Authorized>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-warning btn-sm position-relative me-2" @onclick="GoToAlerts" title="Voir les alertes">
+                            <i class="bi bi-bell-fill"></i>
+
+                        </button>
+
+                        <button class="btn btn-outline-danger btn-sm" @onclick="LogoutClicked">
+                            <i class="bi bi-box-arrow-right me-1"></i> Se déconnecter
+                        </button>
+                    </div>
+
+
+
+                </Authorized>
+
+               
+            </AuthorizeView>
+           
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<style>
+    .top-row {
+        background-color: #4b0082; /* Couleur violette comme tes cartes */
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .app-name {
+        font-weight: bold;
+        font-size: 1.5rem;
+        background: linear-gradient(45deg, #4b0082, #6a0dad, #8a2be2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+    }
+
+  
+
+   
+
+    .btn-outline-warning {
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .alert-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: red;
+        color: white;
+        font-size: 0.7rem;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+
+</style>
+
+<Syncfusion.Blazor.Popups.SfDialogProvider />
+
+@code {
+    
+
+    async Task LogoutClicked()
+    {
+
+        var logoutModel = new UserSession();
+        var customAuthStateProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
+        await customAuthStateProvider.UpdateAuthenticationState(logoutModel);
+        NavManager.NavigateTo("/", forceLoad: true);
+
+    }
+
+    void GoToAlerts()
+    {
+ 
+            allState.ShowHome = false;
+
+            allState.AlertesClicked();
+   
+    }
+
+
+}

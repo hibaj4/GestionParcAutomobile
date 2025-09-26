@@ -1,0 +1,138 @@
+﻿
+@page "/identity/account/login"
+@using BlazorParcAutomobile.Pages.OtherPages
+@using Syncfusion.Blazor.Popups
+@layout AuthentificationLayout
+@inject SfDialogService DialogService
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+
+        <div class="col-lg-4">
+            <EditForm Enhance Model="User" OnValidSubmit="HandleLogin">
+                <DataAnnotationsValidator />
+                <div class="card bg-dark" style="opacity:0.5; margin-top:50%; border-radius:10px; color:white; font-weight:bold">
+                    <div class="card-header text-center fs-5 mb-2">FleetTrack</div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 d-flex justify-content-center">
+                                <img style="border-radius:20px" src="../images/logos/logo.jpg" height="50" width="50" />
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                       @*  <div class="form-group mt-3">
+                            <label class="form-label">Email</label>
+
+                            <InputText @bind-Value="User.Email" class="form-control" ></InputText>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="form-label">Mot De Passe</label>
+                            <input type="password" @bind="User.MotDePasse" class="form-control"></input>
+                        </div> *@
+
+
+                        <div class="form-group mt-3">
+                            <div class="input-group">
+                                <span class="input-group-text bg-transparent border-0">
+                                    <i class="bi bi-envelope-fill text-white"></i>
+                                </span>
+                                <InputText @bind-Value="User.Email" placeholder="Email ID" class="form-control bg-transparent text-white border-0 border-bottom" />
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <div class="input-group">
+                                <span class="input-group-text bg-transparent border-0">
+                                    <i class="bi bi-lock-fill text-white"></i>
+                                </span>
+                                <InputText type="password" @bind-Value="User.MotDePasse" placeholder="Password" class="form-control bg-transparent text-white border-0 border-bottom" />
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                           
+
+                            @if (ShowLoadingButton)
+                            {
+                                <ButtonLoadingSpinner></ButtonLoadingSpinner>
+                            }
+                            else
+                            {
+                                <button class="btn btn-outline-primary float-end" type="submit">Se Connecter</button>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="text-center">
+                            Vous n'avez pas de compte ?
+                            <a class="btn-link" href="identity/account/register">S'inscrire</a>
+                        </span>
+                        <ValidationSummary />
+                    </div>
+                </div>
+            </EditForm>
+            </div>
+        <div class="col-lg-4"></div>
+
+    </div>
+</div>
+
+
+
+
+
+@code {
+    public bool ShowLoadingButton { get; set; } = false;
+    Login User = new();
+    [CascadingParameter] public Task<AuthenticationState> AuthenticationState { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await CheckUserAuthentication();
+    }
+    async Task HandleLogin()
+    {
+        ShowLoadingButton = true;
+        var result = await accountService.SignInAsync(User);
+        if (result.Flag)
+        {
+            await DisplayDialog(result.Message, "Connexion Réussie");
+            var customAuthStateProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
+            await customAuthStateProvider.UpdateAuthenticationState(new UserSession() { Token = result.Token, RefreshToken = result.RefreshToken });
+            NavManager.NavigateTo("/", forceLoad: true);
+        }
+        else
+        {
+			await DisplayDialog(result.Message, "Alerte");
+            
+        
+        }  
+
+        ShowLoadingButton = false;
+
+    }
+    private async Task DisplayDialog(string content,string title)
+    {
+        await DialogService.AlertAsync(content,title);
+
+    }
+    private async Task CheckUserAuthentication()
+    {
+        var user = (await AuthenticationState).User;
+        bool isUserAuthenticated = user.Identity!.IsAuthenticated;
+        if (isUserAuthenticated)
+            NavManager.NavigateTo("/home/dashboard");
+
+
+    }
+
+
+}

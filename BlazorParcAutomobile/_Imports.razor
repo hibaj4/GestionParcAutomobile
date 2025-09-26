@@ -1,0 +1,70 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using BlazorParcAutomobile.ApplicationStates
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using BlazorParcAutomobile
+@using BlazorParcAutomobile.Layout
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Charts
+
+
+
+@using ClientLibrary.Helpers
+@using Microsoft.AspNetCore.Components.Authorization
+@using SharedLibrary.DTOs
+@using ClientLibrary.Services.Contracts
+@using SharedLibrary.Entities
+@using Syncfusion.Blazor.Popups
+@using BlazorParcAutomobile.Pages.ContentPages.VoiturePages
+@using BlazorParcAutomobile.Pages.ContentPages.UtilisateurPages
+@using BlazorParcAutomobile.Pages.ContentPages.AffectationPages
+@using BlazorParcAutomobile.Pages.ContentPages.FournisseurPages
+@using BlazorParcAutomobile.Pages.ContentPages.EntretienPages
+@using BlazorParcAutomobile.Pages.ContentPages.DocumentPages
+@using BlazorParcAutomobile.Pages.ContentPages.TrajetPages
+@using BlazorParcAutomobile.Pages.ContentPages.HomePages
+@using BlazorParcAutomobile.Pages.ContentPages.AlertePages
+@using BlazorParcAutomobile.Pages.ContentPages.RapportPages
+
+
+
+
+
+
+
+
+
+
+@using Syncfusion.Blazor.DropDowns
+
+
+@using BlazorParcAutomobile.Pages.OtherPages
+
+
+
+@inject AuthenticationStateProvider AuthStateProvider
+@inject NavigationManager NavManager
+
+
+@inject IUserAccountService accountService
+@inject AllState allState
+
+@inject SfDialogService dialogService
+
+@* @inject IGenericServiceInterface<Voiture> voitureService
+ *@
+
+@inject IGenericServiceInterface<Utilisateur> utilisateurService
+@inject IGenericServiceInterface<Entretien> entretienService
+@inject ITrajetService trajetService
+@inject IGenericServiceInterface<DocumentAdministratif> documentAdministratifService
+@inject IGenericServiceInterface<Fournisseur> fournisseurService
+@inject IGenericServiceInterface<Affectation> affectationService
+@inject IVoitureService voitureService
+

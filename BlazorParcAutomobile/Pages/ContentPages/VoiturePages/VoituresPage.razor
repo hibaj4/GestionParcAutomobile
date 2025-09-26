@@ -1,0 +1,218 @@
+﻿@inject IJSRuntime JS
+
+@implements IDisposable
+@if (allState.ShowVoitures)
+{
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header ">
+
+
+                        <div class="card-header d-flex justify-content-between align-items-center">
+
+
+                            <h5 class="float-start">Véhicules</h5>
+
+
+
+
+                        <div class="d-flex">
+                            <label class="btn btn-outline-primary me-2">
+                                <i class="bi bi-file-earmark-excel"></i> Importer Excel
+                                <InputFile OnChange="OnFileSelected" style="display:none;" />
+                            </label>
+
+                                <button class="btn btn-outline-success" @onclick="OpenDialog">
+                                    <i class="bi bi-plus-circle-dotted"></i> Ajouter un véhicule
+                            </button>
+                        </div>
+                        </div>
+
+                        </div>
+
+                        <div class="card-body" style="max-height:558px; overflow-y:auto;">
+
+
+                                <SfGrid @ref="grid" TValue="Voiture" DataSource="@Voitures"
+                                        AllowPaging="true" AllowSorting="true"
+                                AllowFiltering="true" AllowResizing="true"
+                                        Toolbar="@(new List<string> {"Print", "Search" })"
+                                        Height="550px">
+                            
+                            <GridColumns>
+                                <GridColumn Field=@nameof(Voiture.Immatriculation) HeaderText="Immatriculation" Width="150"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.Marque) HeaderText="Marque" Width="120"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.Modele) HeaderText="Modèle" Width="120"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.Couleur) HeaderText="Couleur" Width="100"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.TypeVehicule) HeaderText="Type" Width="100"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.AnneeMiseCirculation) HeaderText="Année" Width="100"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.TypeCarburant) HeaderText="Carburant" Width="100"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.Kilometrage) HeaderText="Km" Width="100" Format="N0"></GridColumn>
+                                <GridColumn Field=@nameof(Voiture.AvecChauffeur) HeaderText="Chauffeur" Width="100">
+                                    <Template>
+                                        @if ((bool)(context as Voiture)?.AvecChauffeur!)
+                                        {
+                                            <i class="bi bi-check-circle text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-x-circle text-danger"></i>
+                                        }
+                                    </Template>
+                                </GridColumn>
+                                <GridColumn Field=@nameof(Voiture.Origine) HeaderText="Origine" Width="120"></GridColumn>
+                                <GridColumn HeaderText="Actions" Width="150" TextAlign="TextAlign.Center" AllowSorting="false" AllowFiltering="false">
+                                    <Template>
+                                        <i class="bi bi-pencil text-info me-2" style="cursor:pointer" 
+                                           @onclick="() => EditClicked((context as Voiture))"></i>
+                                        <i class="bi bi-trash text-danger" style="cursor:pointer" 
+                                           @onclick="() => DeleteClicked((context as Voiture))"></i>
+                                    </Template>
+                                </GridColumn>
+                            </GridColumns>
+                        </SfGrid>
+                    </div>
+                    </div>
+                </div>
+
+
+               
+        </div>
+   
+</div>
+ }
+
+<VoitureDialog  @ref="voitureDialog"
+               HandleSaveOperationEvent="HandleSaveOperationEvent" 
+               Voiture="Voiture"/>
+@code {
+    SfGrid<Voiture>? grid;
+
+    private string searchNom = string.Empty;
+    private ElementReference fileInput;
+
+    VoitureDialog? voitureDialog;
+    Voiture Voiture = new();
+    public string Title { get; set; } = "Ajouter";
+    public List<Voiture> Voitures { get; set; } = new();
+ 
+    protected async override Task OnInitializedAsync()
+    {
+        await GetVoitures();
+        allState.Action +=StateHasChanged;
+    }
+    private async Task GetVoitures()
+    {
+        Voitures = await voitureService.GetAll(MyConstants.VoitureBaseUrl);
+    }
+    void OpenDialog()
+    {
+        voitureDialog?.OpenDialog();
+    }
+    private async Task OnFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file == null) return;
+
+        using var content = new MultipartFormDataContent();
+        var stream = file.OpenReadStream(long.MaxValue);
+        content.Add(new StreamContent(stream), "file", file.Name);
+
+        var response = await voitureService.ImporterDepuisExcelAsync(content, MyConstants.VoitureBaseUrl);
+        if (await DisplayMessage(response.Flag, response.Message))
+        {
+            await GetVoitures();
+        }
+    }
+
+
+    private async Task HandleSaveOperationEvent(Voiture voiture)
+    {
+        bool successCheck = false;
+
+        if (voiture.Id > 0)
+        {
+            var result = await voitureService
+                .Update(voiture, MyConstants.VoitureBaseUrl);
+            successCheck = await DisplayMessage(result.Flag, result.Message);
+        }
+        else
+        {
+            var response = await voitureService
+                .Insert(voiture, MyConstants.VoitureBaseUrl);
+            successCheck = await DisplayMessage(response.Flag, response.Message);
+        }
+
+        if (successCheck)
+        {
+            Voiture = new();
+            await GetVoitures();
+            voitureDialog?.ChangeTitle("Ajouter");
+        }
+    }
+
+    private void EditClicked(Voiture voiture)
+    {
+        voitureDialog?.ChangeTitle("Modifier");
+
+
+        Voiture = new Voiture
+        {
+            Id = voiture.Id,
+            Immatriculation = voiture.Immatriculation,
+            Marque = voiture.Marque,
+            Modele = voiture.Modele,
+            Couleur = voiture.Couleur,
+            TypeVehicule = voiture.TypeVehicule,
+            AnneeMiseCirculation = voiture.AnneeMiseCirculation,
+            TypeCarburant = voiture.TypeCarburant,
+            Kilometrage = voiture.Kilometrage,
+            AvecChauffeur = voiture.AvecChauffeur,
+            Origine = voiture.Origine
+        };
+
+        OpenDialog();
+    }
+    private async Task DeleteClicked(Voiture voiture)
+    {
+        bool confirm = await dialogService.ConfirmAsync("Êtes-vous sûr de vouloir supprimer ce véhicule ?", "Confirmation de suppression");
+        if (!confirm) return;
+        var response = await voitureService.DeleteById(voiture.Id, MyConstants.VoitureBaseUrl);
+        if (await DisplayMessage(response.Flag, response.Message))
+
+            await GetVoitures();
+
+
+
+    }
+
+
+    private async Task<bool> DisplayMessage(bool flag, string message)
+    {
+        if (flag)
+        {
+            await dialogService.AlertAsync(message, "Succès !");
+            return true;
+        }
+        else
+        {
+            await dialogService.AlertAsync(message, "Erreur !");
+            return false;
+        }
+
+
+    }
+   
+    public void Dispose()
+    {
+        allState.Action -= StateHasChanged;
+    }
+
+
+
+    
+}
+
+                    

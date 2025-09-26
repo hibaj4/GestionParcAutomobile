@@ -1,0 +1,101 @@
+﻿
+
+<SfDialog Width="350px" InModule="true" ShowCloseIcon="true" @bind-Visible="IsVisible">
+    <DialogEvents OnOpen="OpenDialog"></DialogEvents>
+    <DialogTemplates>
+        <Header>@Title une personne</Header>
+        <Content>
+            <EditForm Model="Utilisateur" OnValidSubmit="Save">
+                <div class="card card-vector-success">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">CIN</label>
+                            <InputText @bind-Value="Utilisateur.CIN" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Nom</label>
+                            <InputText @bind-Value="Utilisateur.Nom" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Prénom</label>
+                            <InputText @bind-Value="Utilisateur.Prenom" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Adresse</label>
+                            <InputText @bind-Value="Utilisateur.Adresse" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Téléphone</label>
+                            <InputText @bind-Value="Utilisateur.Tel" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <InputText @bind-Value="Utilisateur.Email" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Grade</label>
+                            <InputText @bind-Value="Utilisateur.Grade" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Fonction</label>
+                            <InputText @bind-Value="Utilisateur.Fonction" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Solde Kilométrique</label>
+                            <InputNumber @bind-Value="Utilisateur.SoldeCarburant" class="form-control" step="0.01" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Département</label>
+                            <InputText @bind-Value="Utilisateur.Departement" class="form-control" />
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </EditForm>
+        </Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Enregistrer" Type="ButtonType.Submit" IsPrimary="true" OnClick="Save" />
+    </DialogButtons>
+</SfDialog>
+
+
+@code {
+    [Parameter] public Utilisateur Utilisateur { get; set; } = new();
+    [Parameter] public EventCallback<Utilisateur> HandleSaveOperationEvent { get; set; }
+    private bool IsVisible { get; set; } = false;
+    public string Title { get; set; } = "Ajouter";
+
+    
+     public void OpenDialog()
+     {
+      
+         IsVisible = true;
+         StateHasChanged();
+    }
+    public async Task Save()
+    {
+        if (string.IsNullOrEmpty(Utilisateur.CIN))
+            await dialogService.AlertAsync("Entrer CIN ", "Alerte !");
+        else
+            await HandleSaveOperationEvent.InvokeAsync(Utilisateur);
+
+    }
+
+    public void ChangeTitle(string title)
+    {
+        Title = title;
+    
+}}
+
