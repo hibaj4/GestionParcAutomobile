@@ -61,7 +61,7 @@ jobs:
         with:
           app-name: 'MONWEB'
           slot-name: 'Production'
-          package: ${{env.DOTNET_ROOT}}/myapp
+          package: .
 
 
           
